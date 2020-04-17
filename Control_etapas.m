@@ -75,6 +75,9 @@ varargout{1} = handles.output;
 
 % --- Executes on button press in pushbutton3.
 function pushbutton3_Callback(hObject, eventdata, handles)
+global slinea
+linea =set(handles.listbox2,'String',slinea,5);
+function listbox2_CreateFcn(hObject, eventdata, handles)
 % hObject    handle to pushbutton3 (see GCBO)
 % eventdata  reserved - to be defined in a future version of MATLAB
 % handles    structure with handles and user data (see GUIDATA)
@@ -132,16 +135,7 @@ function pushbutton8_Callback(hObject, eventdata, handles)
 
 % --- Executes on selection change in listbox2.
 function listbox2_Callback(hObject, eventdata, handles)
-% hObject    handle to listbox2 (see GCBO)
-% eventdata  reserved - to be defined in a future version of MATLAB
-% handles    structure with handles and user data (see GUIDATA)
 
-% Hints: contents = cellstr(get(hObject,'String')) returns listbox2 contents as cell array
-%        contents{get(hObject,'Value')} returns selected item from listbox2
-
-
-% --- Executes during object creation, after setting all properties.
-function listbox2_CreateFcn(hObject, eventdata, handles)
 % hObject    handle to listbox2 (see GCBO)
 % eventdata  reserved - to be defined in a future version of MATLAB
 % handles    empty - handles not created until after all CreateFcns called
@@ -155,6 +149,25 @@ end
 
 % --- Executes on button press in pushbutton10.
 function pushbutton10_Callback(hObject, eventdata, handles)
+global pop_selec slinea
+if(strcmp(pop_selec,'LINEA'))
+a1 = slinea(1);
+b1 = slinea(2);
+c1 = slinea(3);
+a2 = slinea(4);
+b2 = slinea(5);
+c2 = slinea(6);
+it = 100;
+dx = a2 - a1;
+dy = b2 - b1;
+dz = c2 - c1;
+plot([a1 a2],[b1 b2],'r')
+xlim([0 450])
+ylim([0 450])
+grid on;
+elseif(strcmp(pop_selec,'CIRCULO'))
+    Circulo; 
+end
 % hObject    handle to pushbutton10 (see GCBO)
 % eventdata  reserved - to be defined in a future version of MATLAB
 % handles    structure with handles and user data (see GUIDATA)
