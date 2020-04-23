@@ -75,13 +75,20 @@ varargout{1} = handles.output;
 
 % --- Executes on button press in pushbutton3.
 function pushbutton3_Callback(hObject, eventdata, handles)
-global slinea
-linea =set(handles.listbox2,'String',slinea,5);
-function listbox2_CreateFcn(hObject, eventdata, handles)
-% hObject    handle to pushbutton3 (see GCBO)
-% eventdata  reserved - to be defined in a future version of MATLAB
-% handles    structure with handles and user data (see GUIDATA)
-
+global slinea pop_selec
+listBoxStrings = get(handles.listbox2,'String');
+linea = slinea;
+if(strcmp(pop_selec,'LINEA'))
+    a1 = num2str(linea(1));
+    
+    old_list = get(handles.listbox2,'String');
+    new_list = strvcat(old_list,linea)
+    set(handles.listbox2,'String',new_list)
+elseif(strcmp(pop_selec,'CIRCULO'))
+    Circulo; 
+linea = slinea;
+set(handles.listbox2,'String',linea)
+end
 
 % --- Executes on button press in pushbutton4.
 function pushbutton4_Callback(hObject, eventdata, handles)
@@ -150,21 +157,20 @@ end
 % --- Executes on button press in pushbutton10.
 function pushbutton10_Callback(hObject, eventdata, handles)
 global pop_selec slinea
+a1 = 0;
+b1 = 0;
+c1 = 0;
 if(strcmp(pop_selec,'LINEA'))
-a1 = slinea(1);
-b1 = slinea(2);
-c1 = slinea(3);
-a2 = slinea(4);
-b2 = slinea(5);
-c2 = slinea(6);
-it = 100;
-dx = a2 - a1;
-dy = b2 - b1;
-dz = c2 - c1;
+a2 = slinea(1);
+b2 = slinea(2);
+c2 = slinea(3);
 plot([a1 a2],[b1 b2],'r')
 xlim([0 450])
 ylim([0 450])
 grid on;
+a1 = a2;
+b1 = b2;
+c1 = c2;
 elseif(strcmp(pop_selec,'CIRCULO'))
     Circulo; 
 end

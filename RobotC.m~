@@ -53,8 +53,8 @@ function RobotC_OpeningFcn(hObject, eventdata, handles, varargin)
 % varargin   command line arguments to RobotC (see VARARGIN)
 
 % Choose default command line output for RobotC
-global f arduino 
-f = true;
+global t arduino 
+t = true;
 arduino = serial('/dev/cu.usbmodem14201', 'BaudRate', 9600,'Terminator','CR/LF');
 handles.output = hObject;
 axes(handles.axes1);
@@ -125,8 +125,18 @@ set(handles.ExitAuto,'CData',g);
 % Update handles structure
 guidata(hObject, handles);
 
-function varargout = RobotC_OutputFcn(hObject, eventdata, handles) 
+% UIWAIT makes RobotC wait for user response (see UIRESUME)
+% uiwait(handles.figure1);
 
+
+% --- Outputs from this function are returned to the command line.
+function varargout = RobotC_OutputFcn(hObject, eventdata, handles) 
+% varargout  cell array for returning output args (see VARARGOUT);
+% hObject    handle to figure
+% eventdata  reserved - to be defined in a future version of MATLAB
+% handles    structure with handles and user data (see GUIDATA)
+
+% Get default command line output from handles structure
 varargout{1} = handles.output;
 
 
@@ -136,6 +146,10 @@ function axes1_CreateFcn(hObject, eventdata, handles)
 % eventdata  reserved - to be defined in a future version of MATLAB
 % handles    empty - handles not created until after all CreateFcns called
 
+% Hint: place code in OpeningFcn to populate axes1
+
+
+% --- Executes on button press in pushbutton1.
 function pushbutton1_Callback(hObject, eventdata, handles)
 delete(instrfind({'Port'},{'/dev/cu.usbmodem14201'}));
 fopen(arduino);
@@ -143,14 +157,23 @@ command  = strcat(('H'));
 fwrite(arduino,command);
 fscanf(arduino)
 
+% --- Executes on button press in pushbutton2.
 function pushbutton2_Callback(hObject, eventdata, handles)
+% hObject    handle to pushbutton2 (see GCBO)
+% eventdata  reserved - to be defined in a future version of MATLAB
+% handles    structure with handles and user data (see GUIDATA)
 close(RobotC);
 Circulo;
 
+% --- Executes on button press in pushbutton3.
 function pushbutton3_Callback(hObject, eventdata, handles)
+% hObject    handle to pushbutton3 (see GCBO)
+% eventdata  reserved - to be defined in a future version of MATLAB
+% handles    structure with handles and user data (see GUIDATA)
 close(RobotC);
 Linea;
 
+% --- Executes on button press in pushbutton5.
 function pushbutton5_Callback(hObject, eventdata, handles)
 test;
 close(RobotC);

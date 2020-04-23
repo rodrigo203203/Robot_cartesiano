@@ -22,7 +22,7 @@ function varargout = linea2(varargin)
 
 % Edit the above text to modify the response to help linea2
 
-% Last Modified by GUIDE v2.5 16-Apr-2020 23:10:48
+% Last Modified by GUIDE v2.5 17-Apr-2020 00:26:01
 
 % Begin initialization code - DO NOT EDIT
 gui_Singleton = 1;
@@ -148,10 +148,7 @@ global slinea
 lx1 = str2double(get(handles.ex1,'String'));
 ly1 = str2double(get(handles.ey1,'String'));
 lz1 = str2double(get(handles.ez1,'String'));
-lx2 = str2double(get(handles.ex2,'String'));
-ly2 = str2double(get(handles.ey2,'String'));
-lz2 = str2double(get(handles.ez2,'String'));
-slinea = [lx1 ly1 lz1 lx2 ly2 lz2]
+slinea = [lx1 ly1 lz1 ]
 
 
 function ex2_Callback(hObject, eventdata, handles)
@@ -225,4 +222,3 @@ end
 % --- Executes on button press in pushbutton2.
 function pushbutton2_Callback(hObject, eventdata, handles)
 close(linea2);
-
