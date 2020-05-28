@@ -123,6 +123,7 @@ void serialEvent(){
         sign = -1;
       }
       if(inChar == 'H'){
+        while((finalX==LOW) && (finalY==LOW) && (finalZ==LOW)){
         digitalWrite(dirPin,LOW);
         digitalWrite(dirPin2,LOW);
         digitalWrite(dirPin3,LOW);
@@ -153,6 +154,7 @@ void serialEvent(){
             delayMicroseconds(2000);
         }
       }
+        }
       }
       if(inChar=='x'){ 
         digitalWrite(dirPin3,HIGH);
