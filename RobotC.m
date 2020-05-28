@@ -53,9 +53,6 @@ function RobotC_OpeningFcn(hObject, eventdata, handles, varargin)
 % varargin   command line arguments to RobotC (see VARARGIN)
 
 % Choose default command line output for RobotC
-global f arduino 
-f = true;
-arduino = serial('/dev/cu.usbmodem14201', 'BaudRate', 9600,'Terminator','CR/LF');
 handles.output = hObject;
 axes(handles.axes1);
 [x,map] = imread('Fondo Gris.jpg');

@@ -87,7 +87,7 @@ function varargout = ControlManual_OutputFcn(hObject, eventdata, handles)
 varargout{1} = handles.output;
 
 function Up_Callback(hObject, eventdata, handles)
-global a f arduino
+global a
 f = true;
 persistent count
 count = str2double(get(handles.StaticText1, 'String'));
@@ -105,7 +105,7 @@ fwrite(arduino,command);
 fscanf(arduino)
 
 function Down_Callback(hObject, eventdata, handles)
-global a arduino f
+global a 
 ValorX = str2double(get(handles.StaticText1, 'String'));
 while (ValorX > 0)
 persistent Valor
@@ -126,7 +126,7 @@ fwrite(arduino,command);
 fscanf(arduino)
 
 function Left_Callback(hObject, eventdata, handles)
-global a f arduino
+global a
 ValorY = str2double(get(handles.StaticText2, 'String'));
 while (ValorY > 0)
 persistent Valor
@@ -147,7 +147,7 @@ fwrite(arduino,command);
 fscanf(arduino)
 
 function Right_Callback(hObject, eventdata, handles)
-global a f arduino
+global a
 persistent count
 count = str2double(get(handles.StaticText2, 'String'));
 if isempty(count);
@@ -168,7 +168,7 @@ function pushbutton6_Callback(hObject, eventdata, handles)
 function pushbutton6_ButtonDownFcn(hObject, eventdata, handles)
 
 function Subir_Callback(hObject, eventdata, handles)
-global a f arduino
+global a
 ValorZ = str2double(get(handles.StaticText3, 'String'));
 while(ValorZ < 0)
 persistent Valor
@@ -189,7 +189,7 @@ fwrite(arduino,command);
 fscanf(arduino)
 
 function Bajar_Callback(hObject, eventdata, handles)
-global a f arduino
+global a 
 persistent count
 count = str2double(get(handles.StaticText3, 'String'));
 if isempty(count);
