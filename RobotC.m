@@ -134,8 +134,7 @@ function axes1_CreateFcn(hObject, eventdata, handles)
 % handles    empty - handles not created until after all CreateFcns called
 
 function pushbutton1_Callback(hObject, eventdata, handles)
-delete(instrfind({'Port'},{'/dev/cu.usbmodem14201'}));
-fopen(arduino);
+global arduino
 command  = strcat(('H'));
 fwrite(arduino,command);
 fscanf(arduino)

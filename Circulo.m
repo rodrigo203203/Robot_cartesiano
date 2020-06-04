@@ -124,9 +124,7 @@ currentX = 0;
 currentY = 0;
 currentZ = 0;
 syms A B C
-delete(instrfind({'Port'},{'/dev/cu.usbmodem14201'}));
-arduino = serial('/dev/cu.usbmodem14201', 'BaudRate', 9600,'Terminator','CR/LF');
-fopen(arduino);
+global arduino
 eq1 = [p1x^2 + p1y^2 + A*p1x + B*p1x + C == 0,p2x^2 + p2y^2 + A*p2x + B*p2x + C == 0,p3x^2 + p3y^2 + A*p3x + B*p3x + C == 0];
 S = solve(eq1, [A B C])
 Ar = double(A);

@@ -101,8 +101,8 @@ if(Serial.available() > 0)delay(100);
     
     t = false;
     delay(1);
-  }
   Serial.flush();
+}
 }
 
 void serialEvent(){

@@ -98,8 +98,7 @@ count = count + a;
 x = sprintf('%d', count);
 set(handles.StaticText1, 'String', x);
 guidata(hObject, handles);
-delete(instrfind({'Port'},{'/dev/cu.usbmodem14201'}));
-fopen(arduino);
+global arduino
 command  = strcat(('x'))
 fwrite(arduino,command);
 fscanf(arduino)
@@ -119,8 +118,7 @@ set(handles.StaticText1, 'String', xN);
 end
 set(handles.StaticText1, 'String', '0');
 guidata(hObject, handles);
-delete(instrfind({'Port'},{'/dev/cu.usbmodem14201'}));
-fopen(arduino);
+global arduino
 command  = strcat(('X'))
 fwrite(arduino,command);
 fscanf(arduino)
@@ -140,8 +138,7 @@ set(handles.StaticText2, 'String', yN);
 end
 set(handles.StaticText2, 'String', '0');
 guidata(hObject, handles);
-delete(instrfind({'Port'},{'/dev/cu.usbmodem14201'}));
-fopen(arduino);
+global arduino
 command  = strcat(('y'))
 fwrite(arduino,command);
 fscanf(arduino)
@@ -157,8 +154,7 @@ count = count + a;
 y = sprintf('%d', count);
 set(handles.StaticText2, 'String', y);
 guidata(hObject, handles);
-delete(instrfind({'Port'},{'/dev/cu.usbmodem14201'}));
-fopen(arduino);
+global arduino
 command  = strcat(('Y'))
 fwrite(arduino,command);
 fscanf(arduino)
@@ -181,9 +177,7 @@ zN = sprintf('%d', Valor);
 set(handles.StaticText3, 'String', zN);
 end
 set(handles.StaticText3, 'String', '0');
-guidata(hObject, handles);
-delete(instrfind({'Port'},{'/dev/cu.usbmodem14201'}));
-fopen(arduino);
+global arduino 
 command  = strcat(('z'))
 fwrite(arduino,command);
 fscanf(arduino)
@@ -199,8 +193,7 @@ count = count - a;
 z = sprintf('%d', count);
 set(handles.StaticText3, 'String', z);
 guidata(hObject, handles);
-delete(instrfind({'Port'},{'/dev/cu.usbmodem14201'}));
-fopen(arduino);
+global arduino
 command  = strcat(('Z'))
 fwrite(arduino,command);
 fscanf(arduino)

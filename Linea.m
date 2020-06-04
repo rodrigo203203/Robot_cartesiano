@@ -169,6 +169,7 @@ RobotC;
 
 % --- Executes on button press in Ejecutar.
 function Ejecutar_Callback(hObject, eventdata, handles)
+global arduino
 a1 = get(handles.edit1,'String');
 p1x = str2double(a1);
 a2 = get(handles.edit2,'String');
@@ -201,6 +202,7 @@ for t = 0:it
     currentX = Px;
     currentY = Py;
     currentZ = Pz;
+    fscanf(arduino);
 end 
 
 
