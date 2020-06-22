@@ -174,6 +174,9 @@ c1 = c2;
 elseif(strcmp(pop_selec,'CIRCULO'))
     Circulo; 
 end
+a1=a2;
+b1=b2;
+c1=c3;
 % hObject    handle to pushbutton10 (see GCBO)
 % eventdata  reserved - to be defined in a future version of MATLAB
 % handles    structure with handles and user data (see GUIDATA)

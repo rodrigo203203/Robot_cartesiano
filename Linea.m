@@ -170,20 +170,13 @@ RobotC;
 % --- Executes on button press in Ejecutar.
 function Ejecutar_Callback(hObject, eventdata, handles)
 global arduino
-a1 = get(handles.edit1,'String');
-p1x = str2double(a1);
-a2 = get(handles.edit2,'String');
-p2x = str2double(a2);
-a3 = get(handles.edit3,'String');
-p1y = str2double(a3);
-a4 = get(handles.edit4,'String');
-p2y = str2double(a4);
-a5 = get(handles.edit5,'String');
-p1z = str2double(a5);
-a6 = get(handles.edit6,'String');
-p2z = str2double(a6);
-a7 = get(handles.edit7,'String');
-it = str2double(a7);
+p1x = str2double(get(handles.edit1,'String'));
+p2x = str2double(get(handles.edit4,'String'));
+p1y = str2double(get(handles.edit2,'String'));
+p2y = str2double(get(handles.edit5,'String'));
+p1z = str2double(get(handles.edit3,'String'));
+p2z = str2double(get(handles.edit6,'String'));
+it = str2double(get(handles.edit7,'String'));
 currentX = 0;
 currentY = 0;
 currentZ = 0;
@@ -191,7 +184,7 @@ Dx = p2x - p1x;
 Dy = p2y - p1y;
 Dz = p2z - p1z;
 for t = 0:it
-    Px=p1x+t*Dx/it
+    Px=p1x+t*Dx/it;
     Py=p1y+(t*((Dy)/it));
     Pz=p1z+(t*((Dz)/it));
     diffX = Px-currentX
