@@ -329,5 +329,5 @@ end
 
 % --- Executes on button press in pushbutton2.
 function pushbutton2_Callback(hObject, eventdata, handles)
-Control_etapas;
+controletapas2;
 close(test);

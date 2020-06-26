@@ -114,8 +114,10 @@ currentY = 0;
 currentZ = 0;
 syms A B C
 global arduino
-eq1 = [p1x^2 + p1y^2 + A*p1x + B*p1x + C == 0,p2x^2 + p2y^2 + A*p2x + B*p2x + C == 0,p3x^2 + p3y^2 + A*p3x + B*p3x + C == 0];
-S = solve(eq1, [A B C])
+eq1 = p1x^2 + p1y^2 + A*p1x + B*p1x + C == 0;
+eq2 = p2x^2 + p2y^2 + A*p2x + B*p2x + C == 0;
+eq3 = p3x^2 + p3y^2 + A*p3x + B*p3x + C == 0;
+[A B C] = solve(eq1,eq2,eq3)
 Ar = double(A);
 Br = double(B);
 Cr = double(C);
