@@ -291,36 +291,36 @@ p23x = 0;p24x = -300;p23y = 0;p24y = -200;p23z = 0;p24z = 0;it = 100;
 currentX11 = 0;currentY11 = 0;currentZ11 = 0;
 Dx = p24x - p23x;Dy = p24y - p23y;Dz = p24z - p23z;
 for t = 0:it
-    Px11=p23x+t*Dx/it;
-    Py11=p23y+(t*((Dy)/it));
-    Pz11=p23z+(t*((Dz)/it));
-    diffX = Px11-currentX11;
-    diffY = Py11-currentY11;
-    diffZ = Pz11-currentZ11;
+    Px11=p1x+t*Dx/it;
+    Py1=p1y+(t*((Dy)/it));
+    Pz=p1z+(t*((Dz)/it));
+    diffX = Px-currentX
+    diffY = Py-currentY;
+    diffZ = Pz-currentZ;
     command  = strcat(int2str(diffX),',',int2str(diffY),',',int2str(diffZ),',')
     fwrite(arduino,command);
-    currentX11 = Px11;
-    currentY11 = Py11;
-    currentZ11 = Pz11;
+    currentX = Px;
+    currentY = Py;
+    currentZ = Pz;
     fscanf(arduino);
 end
 %paso12
 pause(5);
-p25x = 0;p26x = 0;p25y = 0;p26y = 0;p25z = 0;p26z = -980;it = 100;
-currentX12 = 0;currentY12 = 0;currentZ12 = 0;
-Dx = p26x - p25x;Dy = p26y - p25y;Dz = p26z - p25z;
+p1x = 0;p2x = 0;p1y = 0;p2y = 0;p1z = 0;p2z = -980;it = 100;
+currentX = 0;currentY = 0;currentZ = 0;
+Dx = p2x - p1x;Dy = p2y - p1y;Dz = p2z - p1z;
 for t = 0:it
-    Px12=p25x+t*Dx/it;
-    Py12=p25y+(t*((Dy)/it));
-    Pz12=p25z+(t*((Dz)/it));
-    diffX = Px12-currentX12;
-    diffY = Py12-currentY12;
-    diffZ = Pz12-currentZ12;
+    Px=p1x+t*Dx/it;
+    Py=p1y+(t*((Dy)/it));
+    Pz=p1z+(t*((Dz)/it));
+    diffX = Px-currentX
+    diffY = Py-currentY;
+    diffZ = Pz-currentZ;
     command  = strcat(int2str(diffX),',',int2str(diffY),',',int2str(diffZ),',')
     fwrite(arduino,command);
-    currentX12 = Px12;
-    currentY12 = Py12;
-    currentZ12 = Pz12;
+    currentX = Px;
+    currentY = Py;
+    currentZ = Pz;
     fscanf(arduino);
 end 
 
