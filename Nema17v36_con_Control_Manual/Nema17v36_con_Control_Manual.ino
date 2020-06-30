@@ -122,6 +122,7 @@ void serialEvent(){
       if(inChar == '-'){
         sign = -1;
       }
+    else{
       if(inChar == 'H'){
         while((finalX==LOW) && (finalY==LOW) && (finalZ==LOW)){
         digitalWrite(dirPin,LOW);
@@ -155,7 +156,9 @@ void serialEvent(){
         }
       }
         }
-      }
+      }  
+    }
+    else{
       if(inChar=='x'){ 
         digitalWrite(dirPin3,HIGH);
         digitalWrite(dirPin4,HIGH);
@@ -168,6 +171,7 @@ void serialEvent(){
           delayMicroseconds(4000);
         }
       }
+    else{
       if(inChar=='y'){
         digitalWrite(dirPin,HIGH);
         for(int i=0;i<stepsPerRevolution3;i++){
@@ -177,8 +181,10 @@ void serialEvent(){
           delayMicroseconds(2000);
           }
       }
+    }
+    else{
       if(inChar=='z'){
-        digitalWrite(dirPin2,HIGH);
+       digitalWrite(dirPin2,HIGH);
         for(int i=0;i<stepsPerRevolution3;i++){
           digitalWrite(stepPin2,HIGH);
           delayMicroseconds(2000);
@@ -186,7 +192,9 @@ void serialEvent(){
           delayMicroseconds(2000);
         }
       }
-      if(inChar=='Z'){
+    }
+    else{
+       if(inChar=='Z'){
         digitalWrite(dirPin2,LOW);
         for(int i=0;i<stepsPerRevolution3;i++){
           digitalWrite(stepPin2,HIGH);
@@ -195,7 +203,9 @@ void serialEvent(){
           delayMicroseconds(2000);
         }
       }
-      if(inChar=='Y'){
+    }
+    else{
+       if(inChar=='Y'){
         digitalWrite(dirPin,LOW);
         for(int i=0;i<stepsPerRevolution3;i++){
           digitalWrite(stepPin,HIGH);
@@ -204,6 +214,8 @@ void serialEvent(){
           delayMicroseconds(2000);
           }
       }
+    }
+    else{
       if(inChar=='X'){ 
         digitalWrite(dirPin3,LOW);
         digitalWrite(dirPin4,LOW);
@@ -216,7 +228,8 @@ void serialEvent(){
           delayMicroseconds(4000);
         }
       }
-      else{
+    }
+    else{
         value += inChar;
       }
     }
