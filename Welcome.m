@@ -73,6 +73,9 @@ global arduino
 delete(instrfind({'Port'},{'/dev/cu.usbmodem14201'}));
 arduino = serial('/dev/cu.usbmodem14201', 'BaudRate', 9600,'Terminator','CR/LF');
 fopen(arduino);
+%en la parte de Port== se debera cambiar dependiendo del puerto que esta
+%conectado a tu computadora. Normalmente para windows se definira un COM
+%por otra parte en Mac se escribira como esta en este momento
 
 
 % UIWAIT makes Welcome wait for user response (see UIRESUME)

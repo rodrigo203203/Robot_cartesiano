@@ -84,7 +84,7 @@ if(Serial.available() > 0)delay(100);
         stepContadorY++;
       }
       while(stepContadorZ < abs(steps2go3)){
-        for(int i=0;i<stepsPerRevolution;i++){
+        for(int i=0;i<stepsPerRevolution2;i++){
         digitalWrite(stepPin2,HIGH);
         delayMicroseconds(1);
         digitalWrite(stepPin2,LOW);
@@ -93,7 +93,7 @@ if(Serial.available() > 0)delay(100);
         stepContadorZ++;
       }
     }
-        Serial.println("WE HAVE ARRIVED, SIR, THE STEPS WERE: " + String(steps2go1) + ", " + String(steps2go2) + ", " + String(steps2go3));
+        Serial.println("WE HAVE ARRIVED, SIR, THE STEPS WERE: " + String(steps2go1) + ", " + String(steps2go2) + ", " + String(steps2go3)+ "#");
 
     stepContadorX = 0;
     stepContadorY = 0;
@@ -118,19 +118,18 @@ void serialEvent(){
       sign = 1;
       i++;
     }
-    else{
+      else{
       if(inChar == '-'){
         sign = -1;
       }
-    else{
-      if(inChar == 'H'){
+      else if(inChar == 'H'){
         while((finalX==LOW) && (finalY==LOW) && (finalZ==LOW)){
         digitalWrite(dirPin,LOW);
         digitalWrite(dirPin2,LOW);
         digitalWrite(dirPin3,LOW);
         digitalWrite(dirPin4,LOW);
         if(finalX == LOW){
-          for(int i=0;i<stepsPerRevolution3;i++){
+          for(int i=0;i<stepsPerRevolution;i++){
             digitalWrite(stepPin3,HIGH);
             digitalWrite(stepPin4,HIGH);
             delayMicroseconds(4000);
@@ -140,7 +139,7 @@ void serialEvent(){
           }
         }
         if(finalY == LOW){
-          for(int i=0;i<stepsPerRevolution3;i++){
+          for(int i=0;i<stepsPerRevolution;i++){
             digitalWrite(stepPin,HIGH);
             delayMicroseconds(2000);
             digitalWrite(stepPin,LOW);
@@ -148,7 +147,7 @@ void serialEvent(){
           }
         }
         if(finalZ == LOW){
-          for(int i=0;i<stepsPerRevolution3;i++){
+          for(int i=0;i<stepsPerRevolution2;i++){
             digitalWrite(stepPin2,HIGH);
             delayMicroseconds(2000);
             digitalWrite(stepPin2,LOW);
@@ -157,12 +156,10 @@ void serialEvent(){
       }
         }
       }  
-    }
-    else{
-      if(inChar=='x'){ 
+      else if(inChar=='x'){ 
         digitalWrite(dirPin3,HIGH);
         digitalWrite(dirPin4,HIGH);
-        for(int i=0;i<stepsPerRevolution3;i++){
+        for(int i=0;i<stepsPerRevolution;i++){
           digitalWrite(stepPin3,HIGH);
           digitalWrite(stepPin4,HIGH);
           delayMicroseconds(4000);
@@ -171,55 +168,46 @@ void serialEvent(){
           delayMicroseconds(4000);
         }
       }
-    else{
-      if(inChar=='y'){
+      else if(inChar=='y'){
         digitalWrite(dirPin,HIGH);
-        for(int i=0;i<stepsPerRevolution3;i++){
+        for(int i=0;i<stepsPerRevolution;i++){
           digitalWrite(stepPin,HIGH);
           delayMicroseconds(2000);
           digitalWrite(stepPin,LOW);
           delayMicroseconds(2000);
           }
       }
-    }
-    else{
-      if(inChar=='z'){
+      else if(inChar=='z'){
        digitalWrite(dirPin2,HIGH);
-        for(int i=0;i<stepsPerRevolution3;i++){
+        for(int i=0;i<stepsPerRevolution2;i++){
           digitalWrite(stepPin2,HIGH);
           delayMicroseconds(2000);
           digitalWrite(stepPin2,LOW);
           delayMicroseconds(2000);
         }
       }
-    }
-    else{
-       if(inChar=='Z'){
+       else if(inChar=='Z'){
         digitalWrite(dirPin2,LOW);
-        for(int i=0;i<stepsPerRevolution3;i++){
+        for(int i=0;i<stepsPerRevolution2;i++){
           digitalWrite(stepPin2,HIGH);
           delayMicroseconds(2000);
           digitalWrite(stepPin2,LOW);
           delayMicroseconds(2000);
         }
       }
-    }
-    else{
-       if(inChar=='Y'){
+      else if(inChar=='Y'){
         digitalWrite(dirPin,LOW);
-        for(int i=0;i<stepsPerRevolution3;i++){
+        for(int i=0;i<stepsPerRevolution;i++){
           digitalWrite(stepPin,HIGH);
           delayMicroseconds(2000);
           digitalWrite(stepPin,LOW);
           delayMicroseconds(2000);
           }
       }
-    }
-    else{
-      if(inChar=='X'){ 
+      else if(inChar=='X'){ 
         digitalWrite(dirPin3,LOW);
         digitalWrite(dirPin4,LOW);
-        for(int i=0;i<stepsPerRevolution3;i++){
+        for(int i=0;i<stepsPerRevolution;i++){
           digitalWrite(stepPin3,HIGH);
           digitalWrite(stepPin4,HIGH);
           delayMicroseconds(4000);
@@ -228,7 +216,7 @@ void serialEvent(){
           delayMicroseconds(4000);
         }
       }
-    }
+
     else{
         value += inChar;
       }
