@@ -22,7 +22,7 @@ function varargout = test(varargin)
 
 % Edit the above text to modify the response to help test
 
-% Last Modified by GUIDE v2.5 16-Apr-2020 22:22:13
+% Last Modified by GUIDE v2.5 01-Jul-2020 14:42:49
 
 % Begin initialization code - DO NOT EDIT
 gui_Singleton = 1;
@@ -332,3 +332,12 @@ end
 function pushbutton2_Callback(hObject, eventdata, handles)
 controletapas2;
 close(test);
+
+
+% --- Executes on button press in pushbutton3.
+function pushbutton3_Callback(hObject, eventdata, handles)
+RobotC;
+close(test);
+% hObject    handle to pushbutton3 (see GCBO)
+% eventdata  reserved - to be defined in a future version of MATLAB
+% handles    structure with handles and user data (see GUIDATA)
